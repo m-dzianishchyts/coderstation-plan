@@ -15,12 +15,14 @@ interface FolderContentOptions {
    * Whether to display number of folders
    */
   showFolderCount: boolean
+  showPageList: boolean
   showSubfolders: boolean
   sort?: SortFn
 }
 
 const defaultOptions: FolderContentOptions = {
   showFolderCount: true,
+  showPageList: true,
   showSubfolders: true,
 }
 
@@ -29,6 +31,10 @@ export default ((opts?: Partial<FolderContentOptions>) => {
 
   const FolderContent: QuartzComponent = (props: QuartzComponentProps) => {
     const { tree, fileData, allFiles, cfg } = props
+
+    const fm = fileData.frontmatter as Record<string, unknown> | undefined
+    const showFolderCount = (fm?.showFolderCount as boolean | undefined) ?? options.showFolderCount
+    const showPageList = (fm?.showPageList as boolean | undefined) ?? options.showPageList
 
     const trie = (props.ctx.trie ??= trieFromAllFiles(allFiles))
     const folder = trie.findNode(fileData.slug!.split("/"))
@@ -106,16 +112,18 @@ export default ((opts?: Partial<FolderContentOptions>) => {
       <div class="popover-hint">
         <article class={classes}>{content}</article>
         <div class="page-listing">
-          {options.showFolderCount && (
+          {showFolderCount && (
             <p>
               {i18n(cfg.locale).pages.folderContent.itemsUnderFolder({
                 count: allPagesInFolder.length,
               })}
             </p>
           )}
-          <div>
-            <PageList {...listProps} />
-          </div>
+          {showPageList && (
+            <div>
+              <PageList {...listProps} />
+            </div>
+          )}
         </div>
       </div>
     )
