@@ -19,7 +19,7 @@ classDiagram
   %% Совет %%
 
   class Council["Совет Проекта"]
-  click Council href "/team/council"
+  click Council href "./council"
 
   Council <.. HeadDeveloper
   Council <.. HeadAdministrator
@@ -30,19 +30,19 @@ classDiagram
   %% Разработка %%
 
   class HeadDeveloper["Старший Разработчик"]
-  click HeadDeveloper href "/team/dev#старший-разработчик"
+  click HeadDeveloper href "./dev#старший-разработчик"
   class DeputyHeadDeveloper["Зам. Старшего Разработчика"]
-  click DeputyHeadDeveloper href "/team/dev#заместитель-старшего-разработчика"
+  click DeputyHeadDeveloper href "./dev#заместитель-старшего-разработчика"
   class DiscordDeveloper["Discord Разработчик"]
-  click DiscordDeveloper href "/team/dev#discord-разработчик"
+  click DiscordDeveloper href "./dev#discord-разработчик"
   class Maintainer["Мейнтейнер"]
-  click Maintainer href "/team/dev#мейнтейнер"
+  click Maintainer href "./dev#мейнтейнер"
   class Coder["Программист"]
-  click Coder href "/team/dev#программист"
+  click Coder href "./dev#программист"
   class Mapper["Маппер"]
-  click Mapper href "/team/dev#маппер"
+  click Mapper href "./dev#маппер"
   class Spriter["Спрайтер"]
-  click Spriter href "/team/dev#спрайтер"
+  click Spriter href "./dev#спрайтер"
 
   HeadDeveloper <|-- DeputyHeadDeveloper
   DeputyHeadDeveloper <.. DiscordDeveloper
@@ -54,11 +54,11 @@ classDiagram
   %% Администрация %%
 
   class HeadAdministrator["Старший Администратор"]
-  click HeadAdministrator href "/team/admin#старший-администратор"
+  click HeadAdministrator href "./admin#старший-администратор"
   class DeputyHeadAdministrator["Зам. Старшего Администратора"]
-  click DeputyHeadAdministrator href "/team/admin#заместитель-старшего-администратора"
+  click DeputyHeadAdministrator href "./admin#заместитель-старшего-администратора"
   class Administrator["Администратор"]
-  click Administrator href "/team/admin#администратор"
+  click Administrator href "./admin#администратор"
 
   HeadAdministrator <|-- DeputyHeadAdministrator
   DeputyHeadAdministrator <.. Administrator
@@ -66,11 +66,11 @@ classDiagram
   %% Работа с сообществом %%
 
   class HeadCommunityManager["Главный Менеджер Сообщества"]
-  click HeadCommunityManager href "/team/community#главный-менеджер-сообщества"
+  click HeadCommunityManager href "./community#главный-менеджер-сообщества"
   class CommunityManager["Менеджер Сообщества"]
-  click CommunityManager href "/team/community#менеджер-сообщества"
+  click CommunityManager href "./community#менеджер-сообщества"
   class Mentor["Ментор"]
-  click Mentor href "/team/community#ментор"
+  click Mentor href "./community#ментор"
 
   HeadCommunityManager <.. CommunityManager
   CommunityManager <.. Mentor
@@ -78,18 +78,18 @@ classDiagram
   %% Wiki %%
 
   class HeadWikiEditor["Главный Редактор Wiki"]
-  click HeadWikiEditor href "/team/wiki#главный-редактор-wiki"
+  click HeadWikiEditor href "./wiki#главный-редактор-wiki"
   class WikiEditor["Редактор Wiki"]
-  click WikiEditor href "/team/wiki#редактор-wiki"
+  click WikiEditor href "./wiki#редактор-wiki"
 
   HeadWikiEditor <.. WikiEditor
 
   %% Лор %%
 
   class HeadLorekeeper["Главный лоровед"]
-  click HeadLorekeeper href "/team/lore#главный-лоровед"
+  click HeadLorekeeper href "./lore#главный-лоровед"
   class Lorekeeper["Лоровед"]
-  click Lorekeeper href "/team/lore#лоровед"
+  click Lorekeeper href "./lore#лоровед"
 
   HeadLorekeeper <.. Lorekeeper
 ```
